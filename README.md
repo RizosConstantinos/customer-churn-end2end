@@ -12,8 +12,11 @@ customer-churn-end2end/
 │ ├── 01_EDA.ipynb # Exploratory Data Analysis
 │ └── 02_Preprocessing.ipynb # Data cleaning & preprocessing
 ├── src/
-│ ├── preprocessing.py # Reusable preprocessing functions
-│ └── init.py
+│   └── customer_churn/
+│       ├── __init__.py
+│       ├── preprocessing.py
+│       └── feature_engineering.py
+├── pyproject.toml
 ├── README.md
 ├── requirements.txt
 
@@ -37,6 +40,17 @@ customer-churn-end2end/
 - Tested preprocessing pipeline on sample data
 
 **Deliverable:** Clean dataset ready for modeling + reusable preprocessing code.
+
+## Project Improvements
+
+- Refactored the project into a proper Python package under `src/customer_churn/`.
+- Added `__init__.py` to make modules importable.
+- Removed all `sys.path` hacks; notebooks now work as clients of the reusable code.
+- Installed the package in editable mode (`pip install -e .`) for clean imports and reproducibility.
+- This improves maintainability, modularity, and aligns the project with industry best practices.
+
+
+
 
 ## Next Steps
 
