@@ -10,10 +10,11 @@ customer-churn-end2end/
 │ └── processed/ # Processed dataset
 ├── notebooks/
 │ ├── 01_EDA.ipynb # Exploratory Data Analysis
-│ └── 02_Preprocessing.ipynb # Data cleaning & preprocessing
+│ └── 02_Feature_engineering.ipynb # Domain-driven feature creation
+│ └── 03_Preprocessing.ipynb # Data cleaning & preprocessing
 ├── src/
 │   └── customer_churn/
-│       ├── __init__.py
+│       ├── __init_.py
 │       ├── preprocessing.py
 │       └── feature_engineering.py
 ├── pyproject.toml
@@ -21,7 +22,7 @@ customer-churn-end2end/
 ├── requirements.txt
 
 
-## Week 1 – Exploratory Data Analysis (EDA)
+## 01 – Exploratory Data Analysis (EDA)
 
 - Dataset overview and basic statistics
 - Missing value analysis
@@ -30,7 +31,20 @@ customer-churn-end2end/
 
 **Deliverable:** EDA notebook with visual insights and observations.
 
-## Week 2 – Data Cleaning & Preprocessing
+
+## 02 – Feature Engineering
+
+- Designed domain-driven features to enrich the dataset
+- Created tenure-based ratio feature (tenure / MonthlyCharges)
+- Engineered service usage feature (services_count) based on subscribed services
+- Added interaction feature between contract type and payment method
+- Validated new features using correlation analysis and visual inspection
+- Implemented reusable feature engineering functions under src/feature_engineering.py
+
+**Deliverable:** Feature-engineered dataset with additional predictive signals + modular feature engineering code.
+
+
+## 03 – Data Cleaning & Preprocessing
 
 - Converted mixed-type columns (e.g. TotalCharges) to numeric
 - Handled missing values (dropped negligible number of rows)
@@ -54,7 +68,6 @@ customer-churn-end2end/
 
 ## Next Steps
 
-- Feature engineering (Week 3)
-- Model training and evaluation (Week 4)
+- Model training and evaluation 
 - Explainability and business insights
 - Deployment and productionization
