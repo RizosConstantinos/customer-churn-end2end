@@ -1,11 +1,4 @@
 import pandas as pd
-
-def drop_unimportant_columns(df, columns):
-    """
-    Drop non-informative or identifier columns.
-    """
-    return df.drop(columns=columns)
-
        
 def convert_to_numeric(df, columns):
     """

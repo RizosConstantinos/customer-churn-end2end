@@ -55,6 +55,19 @@ customer-churn-end2end/
 
 **Deliverable:** Clean dataset ready for modeling + reusable preprocessing code.
 
+
+## 04 – Model Training, Tuning & Evaluation
+
+- Baseline & Advanced Models: Compared Logistic Regression with XGBoost to capture non-linear customer patterns.
+- Optimization: Performed GridSearchCV with 5-fold Cross-Validation to fine-tune hyperparameters for maximum stability.
+- Threshold Tuning: Adjusted decision threshold to 0.4 to prioritize Recall (0.87), ensuring fewer churners are missed.
+- Pipeline & Export: Wrapped preprocessing and model into a single Pipeline and exported it using joblib.
+- Feature Importance: Identified top churn drivers (Contract Type, Tenure) to guide business strategy.
+
+**Deliverable:**  04_Modeling.ipynb with comparative analysis and performance metrics.
+                  Optimized model file: models/churn_model_final_v1.joblib
+                  Modular modeling and evaluation functions under src/customer_churn/modeling.py and evaluation.py
+
 ## Project Improvements
 
 - Refactored the project into a proper Python package under `src/customer_churn/`.
@@ -68,6 +81,5 @@ customer-churn-end2end/
 
 ## Next Steps
 
-- Model training and evaluation 
 - Explainability and business insights
 - Deployment and productionization
