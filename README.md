@@ -9,14 +9,18 @@ customer-churn-end2end/
 │ └── raw/ # Original dataset
 │ └── processed/ # Processed dataset
 ├── notebooks/
-│ ├── 01_EDA.ipynb # Exploratory Data Analysis
+│ └── 01_EDA.ipynb # Exploratory Data Analysis
 │ └── 02_Feature_engineering.ipynb # Domain-driven feature creation
 │ └── 03_Preprocessing.ipynb # Data cleaning & preprocessing
+│ └── 04_Model_Training.ipynb # Model Training, Tuning & Evaluation
+│ └── 05_Explainability.ipynb # Explainability & Business Storytelling
 ├── src/
 │   └── customer_churn/
-│       ├── __init_.py
-│       ├── preprocessing.py
+│       └── __init_.py
+│       └── preprocessing.py
 │       └── feature_engineering.py
+│       └── evaluation.py
+│       └── modeling.py
 ├── pyproject.toml
 ├── README.md
 ├── requirements.txt
@@ -68,6 +72,41 @@ customer-churn-end2end/
                   Optimized model file: models/churn_model_final_v1.joblib
                   Modular modeling and evaluation functions under src/customer_churn/modeling.py and evaluation.py
 
+
+## 05 – Explainability & Business Storytelling
+
+The focus of this stage is to move beyond model performance metrics and provide
+clear, actionable business insights into customer churn.
+
+### Global Explainability
+- SHAP analysis to identify global churn drivers.
+- Contract type, tenure, and monthly charges show the strongest overall impact.
+- Summary plots highlight magnitude and direction of feature effects.
+
+### Customer-Level Explainability
+- Local SHAP explanations (force, decision, waterfall plots) for high-risk customers.
+- Clear breakdown of feature contributions per customer.
+- Explains why a customer is likely to churn, not just the prediction.
+
+### Risk Segmentation & Cohort Analysis
+- Customers segmented into Low / Medium / High risk buckets.
+- Cohort analysis (contract type, tenure) reveals systematic churn patterns.
+- Enables targeted retention strategies.
+
+**Deliverable:**  
+Explainability-focused notebook with global insights, customer-level explanations, and business storytelling.
+
+
+## Business Impact
+
+This project enables the business to shift from reactive to proactive churn management.
+
+- Early identification of high-risk customers using churn probabilities.
+- Clear visibility into key churn drivers.
+- Supports personalized retention actions and efficient resource allocation.
+- Risk-based prioritization improves business impact of retention efforts.
+
+
 ## Project Improvements
 
 - Refactored the project into a proper Python package under `src/customer_churn/`.
@@ -77,9 +116,6 @@ customer-churn-end2end/
 - This improves maintainability, modularity, and aligns the project with industry best practices.
 
 
-
-
 ## Next Steps
 
-- Explainability and business insights
 - Deployment and productionization
