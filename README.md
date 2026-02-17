@@ -3,6 +3,10 @@
 This project focuses on predicting customer churn for a telecom/SaaS company using machine learning.
 The goal is to identify customers who are likely to leave, allowing the business to take proactive retention actions.
 
+In addition to model training and explainability, this repo includes **FastAPI backend** and **Streamlit dashboard** for interactive usage.
+
+---
+
 ## Project Structure
 customer-churn-end2end/
 ├── data/
@@ -21,11 +25,18 @@ customer-churn-end2end/
 │       └── feature_engineering.py
 │       └── evaluation.py
 │       └── modeling.py
+│       └── utils.py
+├── models # Prediction models
+├── app/
+│ └── main.py # Fast API
+├── streamlit_app/
+│ └── dashboard.py # Interactive UI Streamlit App
+├── venv
 ├── pyproject.toml
 ├── README.md
 ├── requirements.txt
-
-
+├── run_my_apps.ps1
+├── Customer_Churn_Prediction_App_Guide.pdf # PDF with step-by-step setup and usage instructions
 ## 01 – Exploratory Data Analysis (EDA)
 
 - Dataset overview and basic statistics
@@ -96,7 +107,6 @@ clear, actionable business insights into customer churn.
 **Deliverable:**  
 Explainability-focused notebook with global insights, customer-level explanations, and business storytelling.
 
-
 ## Business Impact
 
 This project enables the business to shift from reactive to proactive churn management.
@@ -107,6 +117,38 @@ This project enables the business to shift from reactive to proactive churn mana
 - Risk-based prioritization improves business impact of retention efforts.
 
 
+## 06 – Deployment & Interactive Demo
+
+- **FastAPI backend**:
+  - `/predict` → accepts JSON input, returns `prediction` + `probability`
+  - `/health` → returns `{"status":"ok"}`
+- **Streamlit dashboard**:
+  - Interactive sidebar with user-friendly captions
+  - Shows prediction, churn probability, top SHAP features
+  - Connects to local FastAPI server
+- **1-click start**: `run_my_apps.ps1` starts both FastAPI and Streamlit
+
+**Deliverable:** Fully functional local deployment for demo and testing
+
+
+## Customer Churn Prediction App - Quick Start Instructions
+
+A **complete PDF guide** with step-by-step instructions is included in the repository:  
+
+**Customer_Churn_Prediction_App_Guide.pdf**  
+
+The PDF contains:
+
+- Environment setup (Python virtual environment and dependencies)
+- Running FastAPI backend
+- Running Streamlit dashboard
+- Using the apps (inputs, prediction, SHAP features)
+- Tips & troubleshooting
+- Optional improvements for extension and deployment
+
+> Simply open the PDF to follow the detailed instructions.
+
+
 ## Project Improvements
 
 - Refactored the project into a proper Python package under `src/customer_churn/`.
@@ -114,8 +156,3 @@ This project enables the business to shift from reactive to proactive churn mana
 - Removed all `sys.path` hacks; notebooks now work as clients of the reusable code.
 - Installed the package in editable mode (`pip install -e .`) for clean imports and reproducibility.
 - This improves maintainability, modularity, and aligns the project with industry best practices.
-
-
-## Next Steps
-
-- Deployment and productionization
