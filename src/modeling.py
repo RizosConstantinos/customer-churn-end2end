@@ -1,7 +1,6 @@
 import os
 import joblib
 import pandas as pd
-
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
@@ -149,7 +148,6 @@ def save_model(model, filepath):
                 clf.base_score = float(clf.base_score.strip("[]"))
             except ValueError:
                 clf.base_score = 0.5
-    print("Final base_score:", clf.base_score)
 
     joblib.dump(model, filepath)
     print(f"Model saved to: {filepath}")

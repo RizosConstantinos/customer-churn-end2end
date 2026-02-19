@@ -5,8 +5,9 @@ import pandas as pd
 from pathlib import Path
 
 # Load model
-BASE_DIR = Path(__file__).resolve().parent.parent
-model_pipeline = joblib.load(BASE_DIR / "models/churn_model_final_v2.joblib")
+BASE_DIR = Path(__file__).resolve().parent  # app folder
+MODEL_PATH = BASE_DIR.parent / "models" / "churn_model_final_v1.joblib"
+model_pipeline = joblib.load(MODEL_PATH)
 
 # FastAPI app
 app = FastAPI(title="Customer Churn Prediction API")

@@ -19,24 +19,21 @@ customer-churn-end2end/
 │ └── 04_Model_Training.ipynb # Model Training, Tuning & Evaluation
 │ └── 05_Explainability.ipynb # Explainability & Business Storytelling
 ├── src/
-│   └── customer_churn/
-│       └── __init_.py
-│       └── preprocessing.py
-│       └── feature_engineering.py
-│       └── evaluation.py
-│       └── modeling.py
-│       └── utils.py
+│ └── __init_.py # package initialization
+│ └── preprocessing.py # data cleaning and preprocessing functions
+│ └── feature_engineering.py # create derived or domain-specific features
+│ └── evaluation.py # model evaluation metrics and helper functions
+│ └── modeling.py # model training, fitting, and prediction logic
 ├── models # Prediction models
 ├── app/
 │ └── main.py # Fast API
-├── streamlit_app/
-│ └── dashboard.py # Interactive UI Streamlit App
-├── venv
-├── pyproject.toml
-├── README.md
-├── requirements.txt
-├── run_my_apps.ps1
-├── Customer_Churn_Prediction_App_Guide.pdf # PDF with step-by-step setup and usage instructions
+│ └── streamlit_app.py # Interactive UI Streamlit App
+│ └── Customer_Churn_Prediction_App_Guide.pdf # PDF with step-by-step setup and usage instructions
+├── pyproject.toml # project build configuration and package metadata
+├── README.md  # project overview, setup, and usage instructions
+├── requirements.txt # list of Python dependencies for the project
+├── run_my_apps.ps1 # PowerShell script to run FastAPI and Streamlit apps
+
 ## 01 – Exploratory Data Analysis (EDA)
 
 - Dataset overview and basic statistics

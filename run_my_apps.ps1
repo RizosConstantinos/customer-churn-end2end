@@ -5,10 +5,10 @@
 .\venv\Scripts\activate
 
 # --- Start FastAPI server in background ---
-Start-Process uvicorn -ArgumentList "app.main:app --reload --host 127.0.0.1 --port 8000"
+Start-Process uvicorn -ArgumentList "app.api:app --reload --host 127.0.0.1 --port 8000"
 
 # Wait a few seconds to ensure FastAPI is up
 Start-Sleep -Seconds 3
 
 # --- Start Streamlit dashboard ---
-streamlit run streamlit_app/dashboard.py
+streamlit run app/streamlit_app.py

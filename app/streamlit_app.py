@@ -119,13 +119,13 @@ if st.button("Predict"):
             color_discrete_sequence=["red", "green"]
         )
         fig_gauge.update_traces(textinfo='percent+label', textposition='inside')
-        st.plotly_chart(fig_gauge, use_container_width=True)
+        st.plotly_chart(fig_gauge, width="stretch")
 
         # --- SHAP values ---
         st.subheader("Top Features Influencing This Prediction")
 
         # --- Load model pipeline ---
-        model_pipeline = joblib.load("models/churn_model_final_v2.joblib")
+        model_pipeline = joblib.load("models/churn_model_final_v1.joblib")
 
         # --- Transform input using preprocessor only ---
         preprocessor = model_pipeline.named_steps["preprocessing"]
@@ -168,7 +168,7 @@ if st.button("Predict"):
             title='Feature Importance (SHAP)'
         )
         fig.update_layout(yaxis={'categoryorder':'total ascending'}, height=400)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
         st.write("Detailed SHAP values:")
         st.table(top_features[['feature', 'shap_value', 'abs_shap']])
