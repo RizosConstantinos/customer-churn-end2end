@@ -8,6 +8,7 @@ In addition to model training and explainability, this repo includes **FastAPI b
 ---
 
 ## Project Structure
+```text
 customer-churn-end2end/
 ├── data/
 │ └── raw/ # Original dataset
@@ -33,7 +34,7 @@ customer-churn-end2end/
 ├── README.md  # project overview, setup, and usage instructions
 ├── requirements.txt # list of Python dependencies for the project
 ├── run_my_apps.ps1 # PowerShell script to run FastAPI and Streamlit apps
-
+```
 ## 01 – Exploratory Data Analysis (EDA)
 
 - Dataset overview and basic statistics
