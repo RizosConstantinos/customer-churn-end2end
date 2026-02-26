@@ -49,7 +49,7 @@ def health():
 # --- Predict endpoint ---
 @app.post("/predict", response_model=PredictionResponse)
 def predict(customer: CustomerFeatures):
-    X = pd.DataFrame([customer.dict()])
+    X = pd.DataFrame([customer.model_dump()])
     prob = model_pipeline.predict_proba(X)[:,1][0]
     pred = int(prob >= 0.5)
     return {"prediction": pred, "probability": round(prob,4)}
