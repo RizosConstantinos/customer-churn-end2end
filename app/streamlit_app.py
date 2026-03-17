@@ -10,7 +10,7 @@ import shap
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # --- FastAPI URL (Docker service name or localhost) ---
-API_URL = "http://127.0.0.1:8000"
+API_URL = "https://your-api.onrender.com"
 
 # --- Page Config ---
 st.set_page_config(
@@ -125,7 +125,7 @@ if st.button("Predict"):
         st.subheader("Top Features Influencing This Prediction")
 
         # --- Load model pipeline ---
-        model_pipeline = joblib.load("models/churn_model_final_v1.joblib")
+        joblib.load(os.path.join("models", "churn_model_final_v1.joblib"))
 
         # --- Transform input using preprocessor only ---
         preprocessor = model_pipeline.named_steps["preprocessing"]

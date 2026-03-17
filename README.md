@@ -1,156 +1,216 @@
-# Customer Churn Prediction – End-to-End ML Project
+# 🚀 Customer Churn Prediction – End-to-End ML Project
 
-This project focuses on predicting customer churn for a telecom/SaaS company using machine learning.
-The goal is to identify customers who are likely to leave, allowing the business to take proactive retention actions.
+## 🎯 Live Demo
 
-In addition to model training and explainability, this repo includes **FastAPI backend** and **Streamlit dashboard** for interactive usage.
+* 🌐 Streamlit App: *(βάλε link όταν κάνεις deploy)*
+* ⚡ FastAPI Docs (Swagger): *(βάλε link)*
 
 ---
 
-## Project Structure
+## 💼 Business Impact
+
+* **~18% customers flagged as high-risk** (250 / 1,407)
+* **Month-to-month contracts:** ~60% churn vs **~13%** for long-term contracts
+* **Estimated revenue impact:** ~€2M/year saved with 5% churn reduction
+* **Top 20% high-risk customers → ~50% of churn**
+* Enables **targeted retention strategies & ROI optimization**
+
+---
+
+## 📸 Demo Preview
+
+*(βάλε screenshots εδώ)*
+
+* Streamlit dashboard
+* SHAP explainability plots
+* FastAPI Swagger UI
+
+---
+
+## 🧠 Problem Statement
+
+Customer churn is a major challenge in telecom/SaaS businesses.
+The goal of this project is to:
+
+* Predict which customers are likely to churn
+* Explain **why** they churn
+* Provide **actionable insights** for business decisions
+
+---
+
+## 🛠 Tech Stack
+
+* **Python** (Pandas, NumPy, Scikit-learn)
+* **XGBoost**
+* **SHAP** (Explainability)
+* **FastAPI** (Backend API)
+* **Streamlit** (Interactive dashboard)
+* **Joblib** (Model persistence)
+
+---
+
+## ⚙️ ML Pipeline Overview
+
+1. **EDA** → Data understanding & churn patterns
+2. **Data Cleaning & Preprocessing**
+3. **Feature Engineering** (domain-driven features)
+4. **Model Training & Optimization**
+5. **Explainability (SHAP)**
+6. **Deployment (FastAPI + Streamlit)**
+
+---
+
+## 🧪 Model Performance
+
+* Model: **XGBoost (tuned)**
+* Recall: **0.87** (optimized to catch churners)
+* Threshold: **0.4** (business-driven tuning)
+
+👉 Focus: **Minimize missed churners (false negatives)**
+
+---
+
+## 🔍 Key Features & Insights
+
+* **Tenure / Monthly Charges ratio**
+* **Contract Type impact**
+* **Fiber Internet usage**
+* **Service usage intensity**
+
+These features explain **~55% of churn behavior**.
+
+---
+
+## 📊 Explainability
+
+### Global
+
+* SHAP summary plots highlight main churn drivers
+
+### Local (per customer)
+
+* SHAP force & waterfall plots explain predictions
+* Helps answer: *"Why THIS customer will churn?"*
+
+---
+
+## 🧩 Project Structure
+
 ```text
 customer-churn-end2end/
-├── data/
-│ └── raw/ # Original dataset
-│ └── processed/ # Processed dataset
+├── data/ # Raw and processed datasets
 ├── notebooks/
-│ └── 01_EDA.ipynb # Exploratory Data Analysis
-│ └── 02_Feature_engineering.ipynb # Domain-driven feature creation
-│ └── 03_Preprocessing.ipynb # Data cleaning & preprocessing
-│ └── 04_Model_Training.ipynb # Model Training, Tuning & Evaluation
-│ └── 05_Explainability.ipynb # Explainability & Business Storytelling
+│   ├── 01_EDA.ipynb # Exploratory Data Analysis
+│   ├── 02_Feature_engineering.ipynb # Domain-driven feature creation
+│   ├── 03_Preprocessing.ipynb # Data cleaning & preprocessing
+│   ├── 04_Model_Training.ipynb # Model Training, Tuning & Evaluation
+│   ├── 05_Explainability.ipynb # Explainability & Business Storytelling
 ├── src/
-│ └── __init_.py # package initialization
-│ └── preprocessing.py # data cleaning and preprocessing functions
-│ └── feature_engineering.py # create derived or domain-specific features
-│ └── evaluation.py # model evaluation metrics and helper functions
-│ └── modeling.py # model training, fitting, and prediction logic
-├── models # Prediction models
+│   ├── __init__.py # package initialization
+│   ├── preprocessing.py # data cleaning and preprocessing functions
+│   ├── feature_engineering.py # create derived or domain-specific features
+│   ├── evaluation.py # model evaluation metrics and helper functions
+│   ├── modeling.py # model training, fitting, and prediction logic
+│   ├── explainability # SHAP-based explainability functions & visualizations
+├── models/ # Trained model artifacts (joblib)
 ├── app/
-│ └── main.py # Fast API
-│ └── streamlit_app.py # Interactive UI Streamlit App
-│ └── Customer_Churn_Prediction_App_Guide.pdf # PDF with step-by-step setup and usage instructions
+│   ├── main.py # Fast API
+│   ├── streamlit_app.py # Interactive UI Streamlit App
+│   ├── Customer_Churn_Prediction_App_Guide.pdf # PDF with step-by-step setup and usage instructions
 ├── pyproject.toml # project build configuration and package metadata
 ├── README.md  # project overview, setup, and usage instructions
 ├── requirements.txt # list of Python dependencies for the project
 ├── run_my_apps.ps1 # PowerShell script to run FastAPI and Streamlit apps
 ```
-## 01 – Exploratory Data Analysis (EDA)
 
-- Dataset overview and basic statistics
-- Missing value analysis
-- Churn distribution analysis
-- Visualizations (histograms, boxplots, correlations)
+---
 
-**Deliverable:** EDA notebook with visual insights and observations.
+## 🚀 How to Run Locally
 
+### 1. Clone repo
 
-## 02 – Feature Engineering
+```bash
+git clone <your-repo>
+cd customer-churn-end2end
+```
 
-- Designed domain-driven features to enrich the dataset
-- Created tenure-based ratio feature (tenure / MonthlyCharges)
-- Engineered service usage feature (services_count) based on subscribed services
-- Added interaction feature between contract type and payment method
-- Validated new features using correlation analysis and visual inspection
-- Implemented reusable feature engineering functions under src/feature_engineering.py
+### 2. Create environment
 
-**Deliverable:** Feature-engineered dataset with additional predictive signals + modular feature engineering code.
+```bash
+python -m venv venv
+source venv/bin/activate  # or venv\Scripts\activate (Windows)
+pip install -r requirements.txt
+```
 
+### 3. Run apps
 
-## 03 – Data Cleaning & Preprocessing
+```bash
+# FastAPI
+uvicorn app.main:app --reload
 
-- Converted mixed-type columns (e.g. TotalCharges) to numeric
-- Handled missing values (dropped negligible number of rows)
-- One-hot encoded categorical features
-- Scaled numerical features using StandardScaler
-- Created modular preprocessing functions under `src/preprocessing.py`
-- Tested preprocessing pipeline on sample data
+# Streamlit
+streamlit run app/streamlit_app.py
+```
 
-**Deliverable:** Clean dataset ready for modeling + reusable preprocessing code.
+---
 
+## 🔌 API Endpoints
 
-## 04 – Model Training, Tuning & Evaluation
+* `/predict` → returns prediction + probability
+* `/health` → service status
 
-- Baseline & Advanced Models: Compared Logistic Regression with XGBoost to capture non-linear customer patterns.
-- Optimization: Performed GridSearchCV with 5-fold Cross-Validation to fine-tune hyperparameters for maximum stability.
-- Threshold Tuning: Adjusted decision threshold to 0.4 to prioritize Recall (0.87), ensuring fewer churners are missed.
-- Pipeline & Export: Wrapped preprocessing and model into a single Pipeline and exported it using joblib.
-- Feature Importance: Identified top churn drivers (Contract Type, Tenure) to guide business strategy.
+---
 
-**Deliverable:**  04_Modeling.ipynb with comparative analysis and performance metrics.
-                  Optimized model file: models/churn_model_final_v1.joblib
-                  Modular modeling and evaluation functions under src/customer_churn/modeling.py and evaluation.py
+## 📘 Documentation
 
+A detailed setup and usage guide is available:
 
-## 05 – Explainability & Business Storytelling
+👉 **Customer_Churn_Prediction_App_Guide.pdf**
 
-The focus of this stage is to move beyond model performance metrics and provide
-clear, actionable business insights into customer churn.
+Includes:
+- Environment setup
+- Running FastAPI & Streamlit
+- App usage & inputs
+- Troubleshooting
 
-### Global Explainability
-- SHAP analysis to identify global churn drivers.
-- Contract type, tenure, and monthly charges show the strongest overall impact.
-- Summary plots highlight magnitude and direction of feature effects.
+---
 
-### Customer-Level Explainability
-- Local SHAP explanations (force, decision, waterfall plots) for high-risk customers.
-- Clear breakdown of feature contributions per customer.
-- Explains why a customer is likely to churn, not just the prediction.
+## 📦 Production Features
 
-### Risk Segmentation & Cohort Analysis
-- Customers segmented into Low / Medium / High risk buckets.
-- Cohort analysis (contract type, tenure) reveals systematic churn patterns.
-- Enables targeted retention strategies.
+* Modular `src/` structure
+* Reusable preprocessing & modeling pipeline
+* Unit tests for core functions
+* Clean separation: notebooks vs production code
 
-**Deliverable:**  
-Explainability-focused notebook with global insights, customer-level explanations, and business storytelling.
+---
 
-## Business Impact
+## 📈 Future Improvements
 
-This project enables the business to shift from reactive to proactive churn management.
+* Model monitoring & data drift detection
+* Batch prediction endpoint (CSV upload)
+* Docker containerization
+* Cloud deployment (AWS / GCP)
 
-- Early identification of high-risk customers using churn probabilities.
-- Clear visibility into key churn drivers.
-- Supports personalized retention actions and efficient resource allocation.
-- Risk-based prioritization improves business impact of retention efforts.
+---
 
+## 🏗 Engineering & Production Practices
 
-## 06 – Deployment & Interactive Demo
+- Refactored codebase into a proper Python package (`src/`)
+- Eliminated `sys.path` hacks → clean imports & reproducibility
+- Separated notebooks (EDA) from production code
+- Installed project in editable mode (`pip install -e .`)
+- Designed modular, reusable ML pipeline
 
-- **FastAPI backend**:
-  - `/predict` → accepts JSON input, returns `prediction` + `probability`
-  - `/health` → returns `{"status":"ok"}`
-- **Streamlit dashboard**:
-  - Interactive sidebar with user-friendly captions
-  - Shows prediction, churn probability, top SHAP features
-  - Connects to local FastAPI server
-- **1-click start**: `run_my_apps.ps1` starts both FastAPI and Streamlit
+👉 Focus: **scalability, maintainability, production-readiness**
 
-**Deliverable:** Fully functional local deployment for demo and testing
+---
 
+## 👤 Author
 
-## Customer Churn Prediction App - Quick Start Instructions
+**Rizos Constantinos**  
+- LinkedIn: www.linkedin.com/in/constantinos-rizos-0589b5254  
+- GitHub: https://github.com/RizosConstantinos
+  
+---
 
-A **complete PDF guide** with step-by-step instructions is included in the repository:  
-
-**Customer_Churn_Prediction_App_Guide.pdf**  
-
-The PDF contains:
-
-- Environment setup (Python virtual environment and dependencies)
-- Running FastAPI backend
-- Running Streamlit dashboard
-- Using the apps (inputs, prediction, SHAP features)
-- Tips & troubleshooting
-- Optional improvements for extension and deployment
-
-> Simply open the PDF to follow the detailed instructions.
-
-
-## Project Improvements
-
-- Refactored the project into a proper Python package under `src/customer_churn/`.
-- Added `__init__.py` to make modules importable.
-- Removed all `sys.path` hacks; notebooks now work as clients of the reusable code.
-- Installed the package in editable mode (`pip install -e .`) for clean imports and reproducibility.
-- This improves maintainability, modularity, and aligns the project with industry best practices.
+## ⭐ If you found this useful, feel free to star the repo!
