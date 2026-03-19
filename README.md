@@ -1,29 +1,78 @@
-# 🚀 Customer Churn Prediction – End-to-End ML Project
-
-## 🎯 Live Demo
-
-* 🌐 Streamlit App: *(βάλε link όταν κάνεις deploy)*
-* ⚡ FastAPI Docs (Swagger): *(βάλε link)*
+# 🚀 Customer Churn Prediction
+### <sub>End-to-End **Data Science** & **Machine Learning** System</sub>
+---
+### 📑 Quick Navigation
+[💼 Business Impact](#-business-impact) • [📸 Demo Showcase](#-demo-showcase) • [🛠 Tech Stack](#-tech-stack) • [⚙️ Engineering](#-engineering--production-practices) • [🧪 Performance](#-model-performance) • [🧠 Problem Statement](#-problem-statement) • [📘 Documentation](#-documentation)
 
 ---
 
 ## 💼 Business Impact
 
-* **~18% customers flagged as high-risk** (250 / 1,407)
-* **Month-to-month contracts:** ~60% churn vs **~13%** for long-term contracts
-* **Estimated revenue impact:** ~€2M/year saved with 5% churn reduction
+* **~19.5% customers flagged as high-risk** (1372 / 7,032)
+* **Month-to-month contracts:** ~ 60% churn vs **~13%** for long-term contracts
+* **Estimated revenue impact:** ~€2M/year **saved** with 5% churn **reduction**
 * **Top 20% high-risk customers → ~50% of churn**
 * Enables **targeted retention strategies & ROI optimization**
 
 ---
 
-## 📸 Demo Preview
+## 📸 Demo Showcase
+##### click below
 
-*(βάλε screenshots εδώ)*
+<details>
+<summary>📽️ <b>Power BI Dashboard Demo</b></summary>
+<br>
+<video src="docs/Demos/PowerBI/PowerBI_Demo.mp4" controls width="600"></video>
+</details>
 
-* Streamlit dashboard
-* SHAP explainability plots
-* FastAPI Swagger UI
+<details>
+<summary>📽️ <b>Streamlit App Demo</b></summary>
+<br>
+<video src="docs/Demos/StreamlitApp/StreamlitApp_Demo.mp4" controls width="600"></video>
+</details>
+
+<details>
+<summary>🖼️ <b>FastAPI & SQL Analysis</b></summary>
+<br>
+<h4>FastAPI API</h4>
+<img src="docs/Demos/FastAPI/FastAPI.png" width="600">
+<h4>SQL Analysis - Tenure Groups</h4>
+<img src="docs/Demos/SQL/SQL_tenure.png" width=600>
+</details>
+
+---
+
+## 🛠 Tech Stack
+
+* **Language:** Python (Pandas, NumPy, Scikit-learn)
+* **Modeling:** XGBoost, SHAP (Explainability)
+* **API & UI:** FastAPI, Streamlit
+* **Analytics & Data:** Power BI, SQL
+* **DevOps/Engineering:** Joblib, Modular Package Design
+  
+---
+
+## ⚙️ Engineering & Production Practices
+
+* **End-to-End Pipeline:** Designed a modular, reusable ML pipeline covering Data Cleaning, Preprocessing, Feature Engineering, and XGBoost training.
+* **Production Deployment:** Integrated **FastAPI** for the backend and **Streamlit** for the interactive UI.
+* **Refactored Codebase:** Modular structure in `src/` folder, eliminating `sys.path` hacks for clean imports & reproducibility.
+* **Scalability & Maintenance:** Installed in editable mode (`pip install -e .`), separating EDA notebooks from production-ready code.
+* **Compatibility:** 100% clean code (no non-ASCII characters) for maximum portability.
+
+👉 Focus: **Scalability, Maintainability, Production-readiness**
+
+---
+
+## 🧪 Model Performance
+#### Confusion Matrix – XGBoost Model (threshold = 0.4)
+![Confusion Matrix](models/Pretrained_Prediction_Model.png)
+
+* Model: **XGBoost (tuned)**
+* Recall: **0.87** (optimized to catch churners)
+* Threshold: **0.4** (business-driven tuning)
+
+👉 Focus: **Minimize missed churners (false negatives)**
 
 ---
 
@@ -37,39 +86,6 @@ The goal of this project is to:
 * Provide **actionable insights** for business decisions
 
 ---
-
-## 🛠 Tech Stack
-
-* **Python** (Pandas, NumPy, Scikit-learn)
-* **XGBoost**
-* **SHAP** (Explainability)
-* **FastAPI** (Backend API)
-* **Streamlit** (Interactive dashboard)
-* **Joblib** (Model persistence)
-
----
-
-## ⚙️ ML Pipeline Overview
-
-1. **EDA** → Data understanding & churn patterns
-2. **Data Cleaning & Preprocessing**
-3. **Feature Engineering** (domain-driven features)
-4. **Model Training & Optimization**
-5. **Explainability (SHAP)**
-6. **Deployment (FastAPI + Streamlit)**
-
----
-
-## 🧪 Model Performance
-
-* Model: **XGBoost (tuned)**
-* Recall: **0.87** (optimized to catch churners)
-* Threshold: **0.4** (business-driven tuning)
-
-👉 Focus: **Minimize missed churners (false negatives)**
-
----
-
 ## 🔍 Key Features & Insights
 
 * **Tenure / Monthly Charges ratio**
@@ -81,21 +97,10 @@ These features explain **~55% of churn behavior**.
 
 ---
 
-## 📊 Explainability
-
-### Global
-
-* SHAP summary plots highlight main churn drivers
-
-### Local (per customer)
-
-* SHAP force & waterfall plots explain predictions
-* Helps answer: *"Why THIS customer will churn?"*
-
----
-
 ## 🧩 Project Structure
-
+<details>
+<summary><b>📂 Click to view Project Structure</b></summary>
+    
 ```text
 customer-churn-end2end/
 ├── data/ # Raw and processed datasets
@@ -105,6 +110,7 @@ customer-churn-end2end/
 │   ├── 03_Preprocessing.ipynb # Data cleaning & preprocessing
 │   ├── 04_Model_Training.ipynb # Model Training, Tuning & Evaluation
 │   ├── 05_Explainability.ipynb # Explainability & Business Storytelling
+│   ├── 06_Scoring_and_Export # Offline scoring and export to SQL
 ├── src/
 │   ├── __init__.py # package initialization
 │   ├── preprocessing.py # data cleaning and preprocessing functions
@@ -112,52 +118,22 @@ customer-churn-end2end/
 │   ├── evaluation.py # model evaluation metrics and helper functions
 │   ├── modeling.py # model training, fitting, and prediction logic
 │   ├── explainability # SHAP-based explainability functions & visualizations
-├── models/ # Trained model artifacts (joblib)
+├── models/ # Trained model artifacts (joblib) and Perforance Demo
 ├── app/
-│   ├── main.py # Fast API
+│   ├── api.py # Fast API
 │   ├── streamlit_app.py # Interactive UI Streamlit App
 │   ├── Customer_Churn_Prediction_App_Guide.pdf # PDF with step-by-step setup and usage instructions
+├── docs/
+│   ├── Demos/ # Demonstration of FastAPI,PowerBI,SQL and StreamlitApp
+│   ├── PowerBI/ # PowerBI file
+│   ├── SQL/ # SQL dataset and coding
 ├── pyproject.toml # project build configuration and package metadata
 ├── README.md  # project overview, setup, and usage instructions
 ├── requirements.txt # list of Python dependencies for the project
 ├── run_my_apps.ps1 # PowerShell script to run FastAPI and Streamlit apps
+├── tests/ # Check API and ML pipeline functionality
 ```
-
----
-
-## 🚀 How to Run Locally
-
-### 1. Clone repo
-
-```bash
-git clone <your-repo>
-cd customer-churn-end2end
-```
-
-### 2. Create environment
-
-```bash
-python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate (Windows)
-pip install -r requirements.txt
-```
-
-### 3. Run apps
-
-```bash
-# FastAPI
-uvicorn app.main:app --reload
-
-# Streamlit
-streamlit run app/streamlit_app.py
-```
-
----
-
-## 🔌 API Endpoints
-
-* `/predict` → returns prediction + probability
-* `/health` → service status
+</details>
 
 ---
 
@@ -165,43 +141,13 @@ streamlit run app/streamlit_app.py
 
 A detailed setup and usage guide is available:
 
-👉 **Customer_Churn_Prediction_App_Guide.pdf**
+👉 **[Customer_Churn_Prediction_App_Guide.pdf](app/Customer_Churn_Prediction_App_Guide.pdf)**
 
 Includes:
 - Environment setup
 - Running FastAPI & Streamlit
 - App usage & inputs
 - Troubleshooting
-
----
-
-## 📦 Production Features
-
-* Modular `src/` structure
-* Reusable preprocessing & modeling pipeline
-* Unit tests for core functions
-* Clean separation: notebooks vs production code
-
----
-
-## 📈 Future Improvements
-
-* Model monitoring & data drift detection
-* Batch prediction endpoint (CSV upload)
-* Docker containerization
-* Cloud deployment (AWS / GCP)
-
----
-
-## 🏗 Engineering & Production Practices
-
-- Refactored codebase into a proper Python package (`src/`)
-- Eliminated `sys.path` hacks → clean imports & reproducibility
-- Separated notebooks (EDA) from production code
-- Installed project in editable mode (`pip install -e .`)
-- Designed modular, reusable ML pipeline
-
-👉 Focus: **scalability, maintainability, production-readiness**
 
 ---
 
