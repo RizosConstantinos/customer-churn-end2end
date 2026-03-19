@@ -1,8 +1,10 @@
 # 🚀 Customer Churn Prediction
-### <sub>End-to-End **Data Science** & **Machine Learning** System</sub>
+### End-to-End **Data Science** & **Machine Learning** System
+
 ---
+
 ### 📑 Quick Navigation
-[💼 Business Impact](#-business-impact) • [📸 Demo Showcase](#-demo-showcase) • [🛠 Tech Stack](#-tech-stack) • [⚙️ Engineering](#-engineering--production-practices) • [🧪 Performance](#-model-performance) • [🧠 Problem Statement](#-problem-statement) • [📘 Documentation](#-documentation)
+[💼 Business Impact](#-business-impact) • [📸 Demo Showcase](#-demo-showcase) • [🛠 Tech Stack](#-tech-stack) • [⚙️ Engineering](#-engineering-and-production-practices) • [🧪 Performance](#-model-performance) • [🧠 Problem Statement](#-problem-statement) • [🔍 Key Features & Insights](#-key-features-and-insights) • [🧩 Project Structure](#-project-structure) • [📘 Documentation](#-documentation) • [👤 Author](#-author)
 
 ---
 
@@ -52,7 +54,7 @@
   
 ---
 
-## ⚙️ Engineering & Production Practices
+## ⚙️ Engineering and Production Practices
 
 * **End-to-End Pipeline:** Designed a modular, reusable ML pipeline covering Data Cleaning, Preprocessing, Feature Engineering, and XGBoost training.
 * **Production Deployment:** Integrated **FastAPI** for the backend and **Streamlit** for the interactive UI.
@@ -86,7 +88,7 @@ The goal of this project is to:
 * Provide **actionable insights** for business decisions
 
 ---
-## 🔍 Key Features & Insights
+## 🔍 Key Features and Insights
 
 * **Tenure / Monthly Charges ratio**
 * **Contract Type impact**
