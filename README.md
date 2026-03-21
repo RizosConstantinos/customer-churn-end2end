@@ -25,13 +25,13 @@ Customer churn is a critical challenge in telecom/SaaS. This project provides an
 <details>
 <summary>📽️ <b>Power BI Dashboard Demo</b></summary>
 <br>
-<video src="docs/Demos/PowerBI/PowerBI_Demo.mp4" controls width="600"></video>
+<video src="https://github.com/user-attachments/assets/d9a76e0e-2468-49cf-b0ba-103bd1cca69d" controls width="600"></video>
 </details>
 
 <details>
 <summary>📽️ <b>Streamlit App Demo</b></summary>
 <br>
-<video src="docs/Demos/StreamlitApp/StreamlitApp_Demo.mp4" controls width="600"></video>
+<video src="https://github.com/user-attachments/assets/3cc4bae8-3b09-4601-b25d-1a591ce72fb4" controls width="600"></video>
 </details>
 
 <details>
