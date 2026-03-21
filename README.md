@@ -1,19 +1,20 @@
-# 🚀 Customer Churn Prediction
-### End-to-End **Data Science** & **Machine Learning** System
+# Customer Churn Prediction
+### End-to-End **Data Science** & **Machine Learning** Solution
 
 ---
 
 ### 📑 Quick Navigation
-[💼 Business Impact](#-business-impact) • [📸 Demo Showcase](#-demo-showcase) • [🛠 Tech Stack](#-tech-stack) • [⚙️ Engineering](#-engineering-and-production-practices) • [🧪 Performance](#-model-performance) • [🧠 Problem Statement](#-problem-statement) • [🔍 Key Features & Insights](#-key-features-and-insights) • [🧩 Project Structure](#-project-structure) • [📘 Documentation](#-documentation) • [👤 Author](#-author)
+[Business Impact](#business-impact--problem-statement) • [Demo Showcase](#-demo-showcase) • [Tech Stack](#tech-stack) • [Engineering](#engineering--production-standards) • [Performance](#model-performance) • [Insights](#key-features-and-insights) • [Project Structure](#-click-to-view-project-structure) • [Documentation](#documentation) • [Author](#-author)
 
 ---
 
-## 💼 Business Impact
+## Business Impact & Problem Statement
+Customer churn is a critical challenge in telecom/SaaS. This project provides an automated system to **predict, explain, and prevent** customer loss.
 
-* **~19.5% customers flagged as high-risk** (1372 / 7,032)
-* **Month-to-month contracts:** ~ 60% churn vs **~13%** for long-term contracts
-* **Estimated revenue impact:** ~€2M/year **saved** with 5% churn **reduction**
-* **Top 20% high-risk customers → ~50% of churn**
+* **~19.5%** customers flagged as **high-risk** 
+* Month-to-month contracts: ~ **60%** churn vs **~13%** for long-term contracts
+* Estimated revenue impact: ~**€2M/year saved** with 5% churn reduction
+* Top **20%** high-risk customers → ~**50%** of churn
 * Enables **targeted retention strategies & ROI optimization**
 
 ---
@@ -44,7 +45,7 @@
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 * **Language:** Python (Pandas, NumPy, Scikit-learn)
 * **Modeling:** XGBoost, SHAP (Explainability)
@@ -54,41 +55,30 @@
   
 ---
 
-## ⚙️ Engineering and Production Practices
+## Engineering & Production Standards
 
-* **End-to-End Pipeline:** Designed a modular, reusable ML pipeline covering Data Cleaning, Preprocessing, Feature Engineering, and XGBoost training.
-* **Production Deployment:** Integrated **FastAPI** for the backend and **Streamlit** for the interactive UI.
-* **Refactored Codebase:** Modular structure in `src/` folder, eliminating `sys.path` hacks for clean imports & reproducibility.
-* **Scalability & Maintenance:** Installed in editable mode (`pip install -e .`), separating EDA notebooks from production-ready code.
-* **Compatibility:** 100% clean code (no non-ASCII characters) for maximum portability.
-
-👉 Focus: **Scalability, Maintainability, Production-readiness**
+| Focus | Implementation | Key Value |
+| :--- | :--- | :--- |
+| **Architecture** | Modular `src/` package (`pip install -e .`) | No `sys.path` hacks; clean, relative imports. |
+| **Separation** | Isolated EDA notebooks vs. Production `.py` | Scalable, maintainable & CI/CD-ready code. |
+| **Pipeline** | End-to-End Automated ML Workflow | Robust data cleaning & XGBoost training. |
+| **Deployment** | FastAPI (Backend) + Streamlit (UI) | Production-ready web accessibility. |
+| **Portability** | ASCII-only code & `pyproject.toml` | Cross-platform & environment compatibility. |
 
 ---
 
-## 🧪 Model Performance
+## Model Performance
 #### Confusion Matrix – XGBoost Model (threshold = 0.4)
 ![Confusion Matrix](models/Pretrained_Prediction_Model.png)
 
 * Model: **XGBoost (tuned)**
 * Recall: **0.87** (optimized to catch churners)
 * Threshold: **0.4** (business-driven tuning)
-
-👉 Focus: **Minimize missed churners (false negatives)**
-
----
-
-## 🧠 Problem Statement
-
-Customer churn is a major challenge in telecom/SaaS businesses.
-The goal of this project is to:
-
-* Predict which customers are likely to churn
-* Explain **why** they churn
-* Provide **actionable insights** for business decisions
+* Minimize missed churners (false negatives)
 
 ---
-## 🔍 Key Features and Insights
+
+## Key Features and Insights
 
 * **Tenure / Monthly Charges ratio**
 * **Contract Type impact**
@@ -99,7 +89,7 @@ These features explain **~55% of churn behavior**.
 
 ---
 
-## 🧩 Project Structure
+## Project Structure
 <details>
 <summary><b>📂 Click to view Project Structure</b></summary>
     
@@ -125,21 +115,21 @@ customer-churn-end2end/
 │   ├── api.py # Fast API
 │   ├── streamlit_app.py # Interactive UI Streamlit App
 │   ├── Customer_Churn_Prediction_App_Guide.pdf # PDF with step-by-step setup and usage instructions
-├── docs/
-│   ├── Demos/ # Demonstration of FastAPI,PowerBI,SQL and StreamlitApp
-│   ├── PowerBI/ # PowerBI file
-│   ├── SQL/ # SQL dataset and coding
-├── pyproject.toml # project build configuration and package metadata
-├── README.md  # project overview, setup, and usage instructions
-├── requirements.txt # list of Python dependencies for the project
-├── run_my_apps.ps1 # PowerShell script to run FastAPI and Streamlit apps
+├── docs/ # Power BI, SQL, FastAPI and StreamlitApp documentation
+│   ├── Demos/ 
+│   ├── PowerBI/ 
+│   ├── SQL/ 
+├── pyproject.toml # package metadata
+├── README.md  # project overview
+├── requirements.txt # list of Python dependencies
+├── run_my_apps.ps1 # script to run FastAPI and Streamlit apps
 ├── tests/ # Check API and ML pipeline functionality
 ```
 </details>
 
 ---
 
-## 📘 Documentation
+## Documentation
 
 A detailed setup and usage guide is available:
 
@@ -162,3 +152,4 @@ Includes:
 ---
 
 ## ⭐ If you found this useful, feel free to star the repo!
+
