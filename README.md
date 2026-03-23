@@ -146,7 +146,7 @@ Includes:
 ## 👤 Author
 
 **Rizos Constantinos**  
-- LinkedIn: www.linkedin.com/in/constantinos-rizos-0589b5254  
+- LinkedIn: https://www.linkedin.com/in/rizosconstantinos/ 
 - GitHub: https://github.com/RizosConstantinos
   
 ---
